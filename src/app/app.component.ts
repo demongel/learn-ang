@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { PipeDemoComponent } from './demo/pipe-demo/pipe-demo.component';
+// import { PipeDemoComponent } from './demo/pipe-demo/pipe-demo.component';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +8,8 @@ import { PipeDemoComponent } from './demo/pipe-demo/pipe-demo.component';
 })
 export class AppComponent implements AfterViewInit {
 
-  @ViewChild('pipe')
-  pipe: PipeDemoComponent
+  // @ViewChild('pipe')
+  // pipe: PipeDemoComponent
 
   items = {
     href: "https://angular.io/tutorial",
@@ -21,7 +21,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.pipe.callPhone("from parent")
+    // this.pipe.callPhone("from parent")
   }
 
 

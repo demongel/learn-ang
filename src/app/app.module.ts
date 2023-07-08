@@ -6,13 +6,15 @@ import { FormsModule } from '@angular/forms';
 import { LifecycleComponentComponent } from './demo/lifecycle-component/lifecycle-component.component';
 import { LiShowComponent } from './demo/li-show/li-show.component';
 import { PipeDemoComponent } from './demo/pipe-demo/pipe-demo.component';
+import { DirectiveComponent } from './demo/directive/directive.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LifecycleComponentComponent,
     LiShowComponent,
-    PipeDemoComponent
+    PipeDemoComponent,
+    DirectiveComponent
   ],
   imports: [
     BrowserModule,
