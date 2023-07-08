@@ -7,6 +7,8 @@ import { LifecycleComponentComponent } from './demo/lifecycle-component/lifecycl
 import { LiShowComponent } from './demo/li-show/li-show.component';
 import { PipeDemoComponent } from './demo/pipe-demo/pipe-demo.component';
 import { DirectiveComponent } from './demo/directive/directive.component';
+import { TabComponent } from './demo/tab/tab.component';
+import { TabListComponent } from './demo/tab-list/tab-list.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { DirectiveComponent } from './demo/directive/directive.component';
     LifecycleComponentComponent,
     LiShowComponent,
     PipeDemoComponent,
-    DirectiveComponent
+    DirectiveComponent,
+    TabComponent,
+    TabListComponent
   ],
   imports: [
     BrowserModule,

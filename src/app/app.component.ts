@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
+
 // import { PipeDemoComponent } from './demo/pipe-demo/pipe-demo.component';
 
 @Component({
@@ -24,6 +25,15 @@ export class AppComponent implements AfterViewInit {
     // this.pipe.callPhone("from parent")
   }
 
+  tabs: any[] = [];
+
+  ngOnInit() {
+    this.tabs = [
+      { title: "First Tab title", content: "First Tab content" },
+      { title: "Second Tab title", content: "Second Tab content" },
+      { title: "Third Tab title", content: "Third Tab content" }
+    ];
+  }
 
 }
 

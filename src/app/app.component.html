@@ -14,3 +14,8 @@
     <div attribute>content with attribute</div>
     <h5 class="class1">content with css class</h5>
 </app-directive>
+
+<!-- 这里除了循环生成 app-tab 还将每个 遍历对象 绑定到了 子组件的 tab属性上 -->
+<app-tab-list>
+    <app-tab *ngFor="let tab of tabs" [tab]="tab"></app-tab>
+ </app-tab-list>
