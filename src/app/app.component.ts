@@ -28,6 +28,9 @@ export class AppComponent implements AfterViewInit {
     this.message = "Button Clicked"
   }
 
+  bg = "#06F76E"
+  fg = "#09AAE6"
+
   ngAfterViewInit(): void {
     // 每一秒 更新一次 message
     // setInterval(() => this.message = Date.now().toString(), 1000)

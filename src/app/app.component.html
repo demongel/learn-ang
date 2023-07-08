@@ -42,3 +42,9 @@
 </div>
 
 <p> ------- 双向数据绑定 -------</p>
+
+<p><input type="text" [(ngModel)]="fg"></p>
+<p><input type="text" [(ngModel)]="bg"></p>
+<div [ngStyle]="{'color':fg,'background-color':bg}"> 
+  更改输入值查看前景色和背景色
+</div>
