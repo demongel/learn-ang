@@ -1,5 +1,4 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { timeLog } from 'console';
 
 @Component({
   selector: 'app-lifecycle-component',
@@ -35,7 +34,7 @@ export class LifecycleComponentComponent implements OnChanges, OnInit, DoCheck, 
     console.log("----------- ngOnDestroy");
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("----------- ngOnChanges currentValue = " + changes.a.currentValue);
+    console.log("----------- ngOnChanges currentValue = " + changes['a'].currentValue);
   }
 
   ngOnInit(): void {
