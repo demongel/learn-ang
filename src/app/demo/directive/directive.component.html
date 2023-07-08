@@ -1,3 +1,34 @@
 <p>directive works!</p>
 
-<h5>*Ngif = "模板表达式"</h5>
+<h5>*ngIf = "模板表达式"</h5>
+
+<h5>show value is {{show}}</h5>
+<button (click)="toggle()">Toggle</button>
+<h5 *ngIf="show">this is a h5 </h5>
+
+<h5>ngFor指令 *ngFor = "let item in items"</h5>
+
+<div *ngFor="let item of items, let i = index">
+    <div>{{i+1}} is {{item}}</div>
+</div>
+
+<!-- 值 和 ngSwitchCase 指令的值 匹配的元素 才会显示相应的内容，其他会被DOM排除在外 -->
+<div [ngSwitch]="day">
+    <strong *ngSwitchCase="days.SUNDAY">SUNDAY</strong>
+    <strong *ngSwitchCase="days.MONDAY">MONDAY</strong>
+    <strong *ngSwitchCase="days.TUESDAY">TUESDAY</strong>
+    <strong *ngSwitchCase="days.WEDNESDAY">WEDNESDAY</strong>
+    <strong *ngSwitchCase="days.THURSDAY">THURSDAY</strong>
+    <strong *ngSwitchCase="days.FRIDAY">FRIDAY</strong>
+    <strong *ngSwitchCase="days.SATURDAY">SATURDAY</strong>
+    <strong *ngSwitchDefault>Nothing</strong>
+</div>
+
+<!-- Angular 不仅仅（默认）将 双花括号 用于 数据绑定，还（强制）将 单花括号 用于ICU format，需要是可以考虑 {{"{}"}} -->
+<h6>ng-container 不是具体的指令，不会影响样式或者布局，更像其他语言的 {{"{}"}},当没有合适的宿主的时候，用户可以用 ng-container 进行分组</h6>
+ 
+<ol>
+    <ng-container *ngFor="let item of items">
+        <li>{{item}}</li>
+    </ng-container>
+</ol>
