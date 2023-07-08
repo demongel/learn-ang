@@ -9,6 +9,8 @@ import { PipeDemoComponent } from './demo/pipe-demo/pipe-demo.component';
 import { DirectiveComponent } from './demo/directive/directive.component';
 import { TabComponent } from './demo/tab/tab.component';
 import { TabListComponent } from './demo/tab-list/tab-list.component';
+import { MyDirectDirective } from './directive/my-direct.directive';
+import { HbDirective } from './directive/hb.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { TabListComponent } from './demo/tab-list/tab-list.component';
     PipeDemoComponent,
     DirectiveComponent,
     TabComponent,
-    TabListComponent
+    TabListComponent,
+    MyDirectDirective,
+    HbDirective
   ],
   imports: [
     BrowserModule,
