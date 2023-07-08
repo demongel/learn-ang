@@ -45,6 +45,8 @@
 
 <p><input type="text" [(ngModel)]="fg"></p>
 <p><input type="text" [(ngModel)]="bg"></p>
-<div [ngStyle]="{'color':fg,'background-color':bg}"> 
+<div [ngStyle]="{'color':fg,'background-color':bg}">
   更改输入值查看前景色和背景色
 </div>
+
+<app-lifecycle-component [a]=1></app-lifecycle-component>

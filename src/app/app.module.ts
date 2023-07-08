@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { LifecycleComponentComponent } from './demo/lifecycle-component/lifecycle-component.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LifecycleComponentComponent
   ],
   imports: [
     BrowserModule,
