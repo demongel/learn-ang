@@ -20,4 +20,11 @@
     <input ref-username placeholder="Input Username">
     {{username.constructor.name}}
     <button (click)="printName(username.value)"> Print </button>
+
+    <p>----------------</p> 
+    <p>ViewChild 装饰器</p>
+    <p #title1>Hi {{name}}</p>    
+    <p #title2>Hello {{name}}</p>    
+
+
 </div>
