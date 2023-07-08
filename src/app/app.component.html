@@ -1,4 +1,5 @@
 
 <!-- href 和 content 是子组件的 Input属性 -->
-<app-li-show [href]="items.href" [content]="items.content"></app-li-show>
+<!-- clickme 是子组件的 事件名 -->
+<app-li-show [href]="items.href" [content]="items.content" (clickme)="show($event)"></app-li-show>
 <app-lifecycle-component [a]=1></app-lifecycle-component>

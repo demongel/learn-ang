@@ -1,5 +1,7 @@
-import { AfterViewInit, Input } from '@angular/core';
+import { EventEmitter } from '@angular/core';
+import { AfterViewInit, Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-li-show',
@@ -11,6 +13,9 @@ export class LiShowComponent implements OnInit, AfterViewInit {
   @Input() href: string
 
   @Input() content: string
+
+  // 注意 EventEmitter 是 angular/core 里的 
+  @Output() clickme = new EventEmitter<string>()
 
   constructor() { }
 
@@ -42,6 +47,12 @@ export class LiShowComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     // 每一秒 更新一次 message
     // setInterval(() => this.message = Date.now().toString(), 1000)
+  }
+
+  // 子组件的点击事件 
+  showMe(content: string) {
+    // 通过 emit 发射数据
+    this.clickme.emit("event from subComponent ---- content is : "+content)
   }
 
   ngOnInit(): void {

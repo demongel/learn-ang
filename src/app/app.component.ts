@@ -11,5 +11,10 @@ export class AppComponent {
     content:"nothing"
   }
 
+  show(content:string){
+    alert(content)
+  }
+
+
 }
 
