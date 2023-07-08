@@ -1,0 +1,23 @@
+<p>pipe-demo works!</p>
+
+<div>
+    <h5>{{"Angular 转小写" | lowercase}}</h5>
+    <h5>{{"Angular 转大写"  | uppercase}}</h5>
+    <h5>{{"Angular 转大写 再转小写" | uppercase | lowercase}}</h5>
+    <h5>转百分数 : {{0.5 | percent}}</h5>
+    <h5>{{person | json}}</h5>
+    <h5>时间转 json : {{ today| json}}</h5>
+    <h5>日期 : {{ today| date}}</h5>
+    <h5>格式化日期 : {{ today| date:'yyyy-MM-dd'}}</h5>
+
+    <h5>{{student?.name}}</h5>
+    <h5>非空断言 ： {{student2!.name}}</h5>
+
+    <input #phone placeholder="phone number">
+    {{phone.constructor.name}}
+    <button (click)="callPhone(phone.value)"> Call </button>
+
+    <input ref-username placeholder="Input Username">
+    {{username.constructor.name}}
+    <button (click)="printName(username.value)"> Print </button>
+</div>
