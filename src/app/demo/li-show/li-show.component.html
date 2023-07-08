@@ -1,0 +1,56 @@
+<p>LiShow 子组件页面</p>
+
+<div>{{message}}</div>
+
+<div><img [src]="imageURL" alt="a picture"></div>
+
+<div>
+    <table>
+        <tr>
+            <td [attr.colspan]=num>three</td>
+            <!-- 都报错 -->
+            <!-- <td [colspan]=num>three</td> -->
+            <!-- <td colspan={{num}}>three</td> -->
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table>
+</div>
+
+<div>
+    <p>Class 绑定</p>
+    <h3 class="myClass" [class]="MyClass1">变成 myClass ClassOne </h3>
+    <h3 class="myClass" [attr.class]="MyClass2">变成 ClassTwo</h3>
+    <!-- [class.NewClassName] 是angular 给 class 绑定专门新加的 -->
+    <h3 class="myClass" [class.MyClass3]="MyClass3">变成 myClass MyClass3</h3>
+    <h3 class="myClass" [class.newclass]="MyClass4">只有 myClass</h3>
+</div>
+
+<div>
+    <p>Style 样式绑定</p>
+    <h3> style color <button [style.color]="BtnColor">RED</button></h3>
+    <h3> style background-color <button [style.background-color]="BtnBackgroundColor">RED</button></h3>
+    <h3> style font-size <button [style.font-size.%]="BtnFontSize">RED</button></h3>
+
+</div>
+
+<div>
+    <button (click)="onBtnClicked()">
+        Update Title
+    </button>
+</div>
+
+<p> ------- 双向数据绑定 -------</p>
+
+<p><input type="text" [(ngModel)]="fg"></p>
+<p><input type="text" [(ngModel)]="bg"></p>
+<div [ngStyle]="{'color':fg,'background-color':bg}">
+    更改输入值查看前景色和背景色
+</div>
+
+<p> ------- Input 和 Output -------</p>
+
+<h2><a target="_blank" href={{href}}>{{content}}</a></h2>
