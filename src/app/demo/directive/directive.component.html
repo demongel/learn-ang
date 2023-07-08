@@ -26,9 +26,23 @@
 
 <!-- Angular 不仅仅（默认）将 双花括号 用于 数据绑定，还（强制）将 单花括号 用于ICU format，需要是可以考虑 {{"{}"}} -->
 <h6>ng-container 不是具体的指令，不会影响样式或者布局，更像其他语言的 {{"{}"}},当没有合适的宿主的时候，用户可以用 ng-container 进行分组</h6>
- 
+
 <ol>
     <ng-container *ngFor="let item of items">
         <li>{{item}}</li>
     </ng-container>
 </ol>
+
+<h5>属性型指令</h5>
+<h5 [ngClass]="stringProperty">String</h5>
+<h5 [ngClass]="arrayProperty">Array</h5>
+<h5 [ngClass]="objectProperty">Object</h5>
+
+<h5 #ngst [ngStyle]="styles">NgStyle</h5>
+<div>
+    <!-- 不加选择会显示全部 -->
+    <!-- <ng-content></ng-content> -->
+    <ng-content select="span"></ng-content>
+    <ng-content select="[attribute]"></ng-content>
+    <ng-content select=".class1"></ng-content>
+</div>
