@@ -11,6 +11,7 @@ import { TabComponent } from './demo/tab/tab.component';
 import { TabListComponent } from './demo/tab-list/tab-list.component';
 import { MyDirectDirective } from './directive/my-direct.directive';
 import { HbDirective } from './directive/hb.directive';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   // 组件 指令 管道等
@@ -29,7 +30,8 @@ import { HbDirective } from './directive/hb.directive';
   // BrowserModule 参见 https://github.com/angular/angular/blob/main/packages/platform-browser/src/browser.ts 
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   // 把提供Web应用程序级服务的提供商（Provider）定义在这个属性中，提供商负责创建对应的服务，以便Web应用程序中的任何组件都能使用它。
   providers: [],
