@@ -14,6 +14,7 @@ export class LifecycleComponentComponent implements OnChanges, OnInit, DoCheck, 
   fg = "init string"
 
   constructor(private route: ActivatedRoute) {
+
     this.route.url.subscribe((url: UrlSegment[]) => {
       console.log("url = " + url);
       console.log("route " + this.route);
@@ -21,6 +22,8 @@ export class LifecycleComponentComponent implements OnChanges, OnInit, DoCheck, 
       console.log("parent " + this.route.parent);
       console.log("params  " + this.route.params);
     })
+
+    console.log("title in data =  " + this.route.snapshot.data['title']);
     console.log("----------- constructor");
   }
   ngDoCheck(): void {
