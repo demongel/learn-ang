@@ -29,7 +29,8 @@ const routes: Routes = [
       { path: ':id', component: UserDetailComponent, data: { title: '用户详细页面' } }
     ]
   },
-  { path: 'users', loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule) },
+  // 当路径指向 newuser 时， 会加载 UsersModule 模块，就是普通的
+  { path: 'newuser', loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule) },
   { path: "**", redirectTo: "" },
 ]
 
