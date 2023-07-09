@@ -13,6 +13,8 @@ import { MyDirectDirective } from './directive/my-direct.directive';
 import { HbDirective } from './directive/hb.directive';
 import { AppRoutingModule } from './app-routing.module';
 import { EmptyComponent } from './demo/empty/empty.component';
+import { UserListComponent } from './demo/user-list/user-list.component';
+import { UserDetailComponent } from './demo/user-detail/user-detail.component';
 
 @NgModule({
   // 组件 指令 管道等
@@ -26,7 +28,9 @@ import { EmptyComponent } from './demo/empty/empty.component';
     TabListComponent,
     MyDirectDirective,
     HbDirective,
-    EmptyComponent
+    EmptyComponent,
+    UserListComponent,
+    UserDetailComponent
   ],
   // 导入其他模块 导入的模块都是用 NgModule 声明的
   // BrowserModule 参见 https://github.com/angular/angular/blob/main/packages/platform-browser/src/browser.ts 

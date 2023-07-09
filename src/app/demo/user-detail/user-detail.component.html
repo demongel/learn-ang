@@ -1,0 +1,9 @@
+<h4> 标题：{{title}} </h4>
+<div (click)="gotoUser()">
+    {{userId}} | {{userName}} | {{userEmail}}
+</div>
+<br>
+<div>
+    <a [routerLink]="['/users', {a: 123, b: 234}]">演示可选参数</a> <br>
+    <a [routerLink]="['/users', {a: 123, b: 234}]" [queryParams]="{c: 345}">演示查询参数</a>
+</div>
