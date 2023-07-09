@@ -10,6 +10,7 @@ import { DirectiveComponent } from './demo/directive/directive.component';
 import { EmptyComponent } from './demo/empty/empty.component';
 import { UserListComponent } from './demo/user-list/user-list.component';
 import { UserDetailComponent } from './demo/user-detail/user-detail.component';
+import { LazyComponent } from './demo/lazy/lazy.component';
 
 // 添加路由配置
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   },
   { path: "lesson3", component: PipeDemoComponent },
   { path: "lesson4", component: DirectiveComponent },
+  { path: "lesson5", component: LazyComponent },
   {
     path: 'users',
     // 配置子路由，默认显示 UserListComponent ，传递 title
@@ -31,6 +33,7 @@ const routes: Routes = [
   },
   // 当路径指向 newuser 时， 会加载 UsersModule 模块，就是普通的
   { path: 'newuser', loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule) },
+  { path: 'posts', loadChildren: () => import('./features/post/post.module').then(m => m.PostModule) },
   { path: "**", redirectTo: "" },
 ]
 
