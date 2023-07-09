@@ -1,4 +1,5 @@
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, UrlSegment } from '@angular/router';
 
 @Component({
   selector: 'app-lifecycle-component',
@@ -8,11 +9,18 @@ import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit,
 export class LifecycleComponentComponent implements OnChanges, OnInit, DoCheck, AfterContentInit, AfterContentChecked,
   AfterViewInit, AfterViewChecked, OnDestroy {
 
-  @Input() a :number = 0 
+  @Input() a: number = 0
 
   fg = "init string"
 
-  constructor() { 
+  constructor(private route: ActivatedRoute) {
+    this.route.url.subscribe((url: UrlSegment[]) => {
+      console.log("url = " + url);
+      console.log("route " + this.route);
+      console.log("path to root " + this.route.pathFromRoot);
+      console.log("parent " + this.route.parent);
+      console.log("params  " + this.route.params);
+    })
     console.log("----------- constructor");
   }
   ngDoCheck(): void {
@@ -40,7 +48,7 @@ export class LifecycleComponentComponent implements OnChanges, OnInit, DoCheck, 
   ngOnInit(): void {
     // 用于初始化数据 
     console.log("----------- ngOnInit");
-    
+
   }
   /**
    * 

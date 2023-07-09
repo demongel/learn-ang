@@ -11,12 +11,12 @@ import { EmptyComponent } from './demo/empty/empty.component';
 
 // 添加路由配置
 const routes: Routes = [
-  { path: "home", component: EmptyComponent },
+  { path: "", component: EmptyComponent },
   { path: "lesson1", component: LiShowComponent },
   { path: "lesson2", component: LifecycleComponentComponent },
   { path: "lesson3", component: PipeDemoComponent },
   { path: "lesson4", component: DirectiveComponent },
-  { path: "**", redirectTo: "home" },
+  { path: "**", redirectTo: "" },
 ]
 
 @NgModule({
