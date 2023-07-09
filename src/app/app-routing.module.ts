@@ -23,7 +23,8 @@ const routes: Routes = [
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forRoot(routes)
+    // enableTracing 追踪路由相关事件
+    RouterModule.forRoot(routes, { enableTracing: true })
   ],
   exports: [RouterModule]
 })
