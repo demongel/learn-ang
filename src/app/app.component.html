@@ -8,14 +8,22 @@
 <!-- <app-pipe-demo #pipe></app-pipe-demo> -->
 
 
-<app-directive>
+<!-- <app-directive>
     <div>simple content</div>
     <span style="display:block">span content</span>
     <div attribute>content with attribute</div>
     <h5 class="class1">content with css class</h5>
-</app-directive>
+</app-directive> -->
 
 <!-- 这里除了循环生成 app-tab 还将每个 遍历对象 绑定到了 子组件的 tab属性上 -->
-<app-tab-list>
+<!-- <app-tab-list>
     <app-tab *ngFor="let tab of tabs" [tab]="tab"></app-tab>
- </app-tab-list>
+</app-tab-list> -->
+
+<div class="container">
+    <a routerLinkActive="active" routerLink="/lesson1">Angular 组件与数据绑定</a> |
+    <a routerLinkActive="active" routerLink="/lesson2">生命周期方法</a> |
+    <a routerLinkActive="active" routerLink="/lesson3">管道与ViewChild</a> |
+    <a routerLinkActive="active" routerLink="/lesson4">常用指令</a>
+    <router-outlet></router-outlet>
+</div>
