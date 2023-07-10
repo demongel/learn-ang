@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { of, map, filter, from, range, fromEvent, timer, interval, defer } from 'rxjs';
+import { of, map, filter, from, range, fromEvent, timer, interval, defer, tap, mergeMap, throwError, retry, concat, merge, zip } from 'rxjs';
 
 @Component({
   selector: 'app-rx',
@@ -134,6 +134,66 @@ export class RxComponent {
     ).subscribe(observer); // 步骤9：订阅可观察对象
 
     subscription.unsubscribe(); // 步骤10：取消订阅可观察对象
+  }
+
+  testMap() {
+    of(1, 2, 3).pipe(map(x => 10 * x)) // 将1映射成10，2映射成20，3映射成30
+      .subscribe(item => console.log("普通 map " + item))
+
+    of(1, 2, 3)
+      .pipe(
+        map(x => 10 * x),
+        map(x => x + 1)
+      ) // 两个map操作符串联在一起，按照顺序执行
+      .subscribe(item => console.log("串联 map " + item))
+  }
+
+  testTap() {
+    of(1).pipe(
+      tap(val => console.log(`map执行前: ${val}`)),
+      map(val => val + 10),
+      tap(val => console.log(`map执行后: ${val}`))
+    ).subscribe(item => console.log(item))
+  }
+
+  testFilter() {
+    of(1, 2, 3, 4, 5).pipe(
+      filter(val => val > 3)
+    ).subscribe(item => console.log(item))
+  }
+
+  testRetry() {
+    interval(1000).pipe(
+      mergeMap(val => {
+        if (val > 2) {
+          return throwError(() => new Error("发生问题")); // 模拟发生错误
+        }
+        return of(val);
+      }),
+      retry(2) // 如果有错误时，重新执行两次
+    ).subscribe({
+      next: (item) => console.log(item),
+      error: (err) => console.log(err),
+      complete: () => console.log('执行完成'),
+    }
+    )
+  }
+
+  testCMZ() {
+    const nums = of(1, 2, 3)
+    // const nums = range(1,1000)
+    const uppers = of('A', 'B', 'C')
+    const lowers = of('a', 'b', 'c', 'd')
+
+    concat(nums, uppers, lowers)
+      .subscribe(item => console.log("concat =  " + item))
+
+    merge(nums, uppers, lowers)
+      .subscribe(item => console.log("merge =  " + item))
+
+    zip(nums, uppers, lowers)
+      .subscribe(item => console.log("zip =  " + item))
+
   }
 
 }
