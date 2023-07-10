@@ -9,3 +9,66 @@
 <p>
     选择的值: {{ f.value }}
 </p>
+
+
+<h3>演示 ngForm </h3>
+<form #form="ngForm"> <!-- NgForm -->
+    <input ngModel name="companyName" type="text"> <!-- NgModel -->
+
+    <div ngModelGroup="address"> <!-- NgModelGroup -->
+        <input ngModel name="city" type="text"> <!-- NgModel -->
+        <input ngModel name="street" type="text"> <!-- NgModel -->
+    </div>
+</form>
+<h5>{{ form.value | json }}</h5>
+<h6>是否有效 {{ form.status }}</h6>
+
+<h3>演示 NgModel 单独使用</h3>
+<form novalidate #f2="ngForm">
+    <input type='text' name='userName' placeholder='Input your userName' ngModel>
+</form>
+<p>
+    {{ f2.value | json }}
+</p>
+
+
+<h3>演示 NgModel 单向数据绑定</h3>
+<form novalidate #f3="ngForm">
+    <input type='text' name='userName' placeholder='Input your userName' [ngModel]='model.userName'>
+</form>
+<p>
+    {{ f3.value | json }}
+    {{ model | json }}
+</p>
+
+<h3>演示 NgModel 双向数据绑定</h3>
+<form novalidate #f4="ngForm">
+    <input type='text' name='userName' placeholder='Input your userName' [(ngModel)]='model2.userName'>
+</form>
+<p>
+    {{ f4.value | json }}
+    {{ model2 | json }}
+</p>
+
+<h3>演示 NgModel 结合模板变量</h3>
+<form>
+    <input type='text' name='userName' #myVar="ngModel" placeholder='Input your userName' ngModel>
+</form>
+<p>
+    {{ "value = "+ myVar.value+ " valid = " + myVar.control.valid }}
+</p>
+
+<h3>演示 NgModel 独立使用</h3>
+<input [ngModelOptions]="{ standalone: true }" #myNgModel="ngModel" name="name" ngModel type="text">
+{{ myNgModel.value }}
+
+<h3>演示 ngModelGroup 指令</h3>
+<form #f5="ngForm"> <!--Angular 会在 <form> 标签上自动创建并附加一个 NgForm 指令 -->
+    <ng-container #myGrp="ngModelGroup" ngModelGroup="address">
+        <input type="text" ngModel name="city" />
+        <input type="text" ngModel name="street" />
+    </ng-container>
+</form>
+<p>Form表单的值: {{ f5.value | json }}</p>
+<p>子组的值: {{ myGrp.value | json }}</p>
+<p>Form Invalid: {{ myGrp.invalid }}</p>

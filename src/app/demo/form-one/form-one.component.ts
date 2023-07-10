@@ -13,4 +13,12 @@ export class FormOneComponent {
     { id: 4, name: 'Another Name' },
   ];
   crtUserId = this.users[0].id;
+
+  model = {
+    userName: 'Angular'
+  };
+
+  model2 = {
+    userName: 'NodeJs'
+  };
 }
