@@ -1,0 +1,11 @@
+<h3>演示下拉列表</h3>
+<form>
+    <select #f [(ngModel)]="crtUserId" name="user">
+        <option *ngFor="let user of users" [value]="user.id">
+            {{ user.name }}
+        </option>
+    </select>
+</form>
+<p>
+    选择的值: {{ f.value }}
+</p>

@@ -17,6 +17,7 @@ import { UserListComponent } from './demo/user-list/user-list.component';
 import { UserDetailComponent } from './demo/user-detail/user-detail.component';
 import { LazyComponent } from './demo/lazy/lazy.component';
 import { RxComponent } from './demo/rx/rx.component';
+import { FormOneComponent } from './demo/form-one/form-one.component';
 
 @NgModule({
   // 组件 指令 管道等
@@ -34,7 +35,8 @@ import { RxComponent } from './demo/rx/rx.component';
     UserListComponent,
     UserDetailComponent,
     LazyComponent,
-    RxComponent
+    RxComponent,
+    FormOneComponent
   ],
   // 导入其他模块 导入的模块都是用 NgModule 声明的
   // BrowserModule 参见 https://github.com/angular/angular/blob/main/packages/platform-browser/src/browser.ts 
