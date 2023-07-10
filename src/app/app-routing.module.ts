@@ -34,6 +34,8 @@ const routes: Routes = [
   // 当路径指向 newuser 时， 会加载 UsersModule 模块，就是普通的
   { path: 'newuser', loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule) },
   { path: 'posts', loadChildren: () => import('./features/post/post.module').then(m => m.PostModule) },
+  { path: 'employee', loadChildren: () => import('./features/employee/employee.module').then(m => m.EmployeeModule) },
+  { path: 'department', loadChildren: () => import('./features/department/department.module').then(m => m.DepartmentModule) },
   { path: "**", redirectTo: "" },
 ]
 
