@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { of, map, filter, from, range, fromEvent, timer, interval, defer, tap, mergeMap, throwError, retry, concat, merge, zip, concatMap, switchMap, exhaustMap, take } from 'rxjs';
+import { of, map, filter, from, range, fromEvent, timer, interval, defer, tap, mergeMap, throwError, retry, concat, merge, zip, concatMap, switchMap, exhaustMap, take, share } from 'rxjs';
 
 @Component({
   selector: 'app-rx',
@@ -261,5 +261,32 @@ export class RxComponent {
       // 每次会等待 内部的订阅完成 才会 响应外部的新事件， 否则会忽略外部的新事件
       exhaustMap(ev => interval(1000).pipe(take(3)))
     ).subscribe(item => console.log(item));
+  }
+
+  testColdFlow() {
+    let obs$ = interval(1000).pipe(take(4));
+
+    // 对于每一个订阅来说 每次的结果都是一样的
+    obs$.subscribe(data => { console.log("1st subscriber:" + data) });
+    obs$.subscribe(data => { console.log("2nd subscriber:" + data) });
+
+    setTimeout(() => {
+      obs$.subscribe(data => { console.log("3rd subscriber:" + data) });
+    }, 1000); // 延迟1s
+  }
+
+  testHotFlow() {
+
+    // share操作符的作用是将原始的可观察对象共享给一个新的可观察对象。
+    // 只要至少有一个订阅，该可观察对象便会被预定并发出数据。
+    let obs$ = interval(1000).pipe(take(5), share());
+
+    // 对于每一个订阅来说 每次的结果都是一样的
+    obs$.subscribe(data => { console.log("1st subscriber:" + data) });
+
+    // 2nd 会从 2 开始打印
+    setTimeout(() => {
+      obs$.subscribe(data => { console.log("2nd subscriber:" + data) });
+    }, 2000); // 延迟1s
   }
 }
