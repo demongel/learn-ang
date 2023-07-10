@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { of, map, filter, from, range, fromEvent, timer, interval, defer, tap, mergeMap, throwError, retry, concat, merge, zip } from 'rxjs';
+import { of, map, filter, from, range, fromEvent, timer, interval, defer, tap, mergeMap, throwError, retry, concat, merge, zip, concatMap, switchMap, exhaustMap, take } from 'rxjs';
 
 @Component({
   selector: 'app-rx',
@@ -196,4 +196,70 @@ export class RxComponent {
 
   }
 
+  // 高阶映射操作符
+  // 定义可观察对象变量名时，后面接一个$，表示的是可观察对象变量。
+  testConcatMap() {
+    const obs1$ = zip( // 使用zip操作符模拟每隔1s发射一个值
+      of('A', 'B', 'C'),
+      timer(1000, 1000),
+      (x, y) => x // 第一个参数x指of操作符的item值，第二个参数是timer操作符的item值，这里仅输出of操作符的item值
+    )
+
+    const obs2$ = of(1, 2, 3)
+
+    // 旧的写法
+    // obs1$.pipe(concatMap(() => obs2$, (x, y) => '' + x + y)).subscribe(item => console.log(item))
+
+    // x 时 obs1 的值， y 是 obs2 的值
+    obs1$.pipe(concatMap(
+      x => obs2$.pipe(map(y => 'concatMap  = ' + x + y))
+    )
+    ).subscribe(item => console.log(item))
+  }
+
+  testMergeMap() {
+    const obs1$ = of('A', 'B', 'C');
+    const obs2$ = zip( // 使用zip操作符模拟立即发出数字1，然后每隔1s发射数字2和3
+      of(1, 2, 3),
+      timer(0, 1000),
+      (x, y) => x
+    )
+
+    // obs1$.pipe(mergeMap(x => obs2$, (x, y) => '' + x + y, 2)
+    // 最后一个参数是并发数，如果是1 ，那么 会打印 A1 A2 A3 .。。
+
+    obs1$.pipe(mergeMap(x => obs2$.pipe(map(y => "merge map " + x + y)), 2)
+    ).subscribe(item => console.log(item))
+  }
+
+  testSwitchMap() {
+    const obs1$ = timer(0, 5000); // 先立即发出值，然后每5s发出值
+    const obs2$ = interval(2000); // 每隔2s发出值
+
+    // 每次 out 发射一个新的值，inner 就会创建一个新的订阅，同时取消之前的订阅
+    // 这里的 outerValue 和 outerIndex 都是来自 source Observable 的。
+    // outerValue 就是 source 发出的值，它是从 0 开始递增的数字。
+    // outerIndex 就是 source 发出的次数，它也是从 0 开始递增的数字。你可以把它们想象成一个数组，
+    // 每当 source 发出一个值，就相当于访问数组的一个元素，outerValue 就是元素的值，outerIndex 就是元素的索引
+    obs1$.pipe(switchMap((outerValue, outerIndex) => obs2$
+      .pipe(map((innerValue, innerIndex) => ({
+        outerValue,
+        innerValue,
+        outerIndex,
+        innerIndex
+      })
+      )))
+    ).subscribe(item => console.log(item))
+  }
+
+  // 每次点击按钮 会创建多个订阅
+  // 可以点击一次后 点击页面其他位置 进行测试
+  testExhaustMap() {
+    const clicks$ = fromEvent(document, 'click');
+    const nums$ = of(1, 2, 3, 4, 5)
+    clicks$.pipe(
+      // 每次会等待 内部的订阅完成 才会 响应外部的新事件， 否则会忽略外部的新事件
+      exhaustMap(ev => interval(1000).pipe(take(3)))
+    ).subscribe(item => console.log(item));
+  }
 }
