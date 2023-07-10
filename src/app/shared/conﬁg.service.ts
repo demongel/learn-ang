@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { conﬁgToken, Conﬁg } from './conﬁg';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'any'
 })
 export class ConﬁgService {
 
