@@ -16,6 +16,12 @@ import { EmptyComponent } from './demo/empty/empty.component';
 import { UserListComponent } from './demo/user-list/user-list.component';
 import { UserDetailComponent } from './demo/user-detail/user-detail.component';
 import { LazyComponent } from './demo/lazy/lazy.component';
+import { Conﬁg, conﬁgToken } from './shared/conﬁg';
+
+export const conﬁgValue: Conﬁg = { // 自定义配置
+  apiEndPoint: 'root inject',
+  timeout: 6000
+};
 
 @NgModule({
   // 组件 指令 管道等
@@ -42,7 +48,10 @@ import { LazyComponent } from './demo/lazy/lazy.component';
     AppRoutingModule
   ],
   // 把提供Web应用程序级服务的提供商（Provider）定义在这个属性中，提供商负责创建对应的服务，以便Web应用程序中的任何组件都能使用它。
-  providers: [],
+  // providers: [],
+  providers: [{
+    provide: conﬁgToken, useValue: conﬁgValue // 注册ValueProvider
+  }],
   // Web应用程序的主视图，称为根组件。只有根模块才应该设置bootstrap属性
   bootstrap: [AppComponent]
 })
