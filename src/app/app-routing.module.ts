@@ -11,6 +11,7 @@ import { EmptyComponent } from './demo/empty/empty.component';
 import { UserListComponent } from './demo/user-list/user-list.component';
 import { UserDetailComponent } from './demo/user-detail/user-detail.component';
 import { LazyComponent } from './demo/lazy/lazy.component';
+import { RxComponent } from './demo/rx/rx.component';
 
 // 添加路由配置
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: "lesson3", component: PipeDemoComponent },
   { path: "lesson4", component: DirectiveComponent },
   { path: "lesson5", component: LazyComponent },
+  { path: "lesson6", component: RxComponent },
   {
     path: 'users',
     // 配置子路由，默认显示 UserListComponent ，传递 title
