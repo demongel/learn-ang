@@ -15,11 +15,17 @@ export class InMemHeroService implements InMemoryDbService {
    */
   createDb() {
     let heroes = [
-      { id: 1, name: 'Murphy' },
-      { id: 2, name: 'Bombasto' },
-      { id: 3, name: 'Magneta' },
-      { id: 4, name: 'Tornado' }
+      { id: 1, name: 'Angular' },
+      { id: 2, name: 'Kotlin' },
+      { id: 3, name: 'Android' },
+      { id: 4, name: 'Java' }
     ];
-    return { heroes };
+    let heroes2 = [
+      { id: 1, name: 'iOS' },
+      { id: 2, name: 'Swift' },
+      { id: 3, name: 'NodeJs' },
+      { id: 4, name: 'Vue' }
+    ];
+    return { heroes, heroes2 };
   }
 }

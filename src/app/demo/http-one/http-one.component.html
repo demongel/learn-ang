@@ -3,9 +3,18 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:center">
     <h1>
-        {{title}}!
+        {{title}}
     </h1>
     <p *ngFor="let hero of heroes">
+        {{hero.id}} - {{hero.name}}
+    </p>
+</div>
+
+<div style="text-align:center">
+    <h2>
+        获取完整 response
+    </h2>
+    <p *ngFor="let hero of heroes2">
         {{hero.id}} - {{hero.name}}
     </p>
 </div>
