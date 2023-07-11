@@ -15,6 +15,8 @@ import { RxComponent } from './demo/rx/rx.component';
 import { FormOneComponent } from './demo/form-one/form-one.component';
 import { FormTwoComponent } from './demo/form-two/form-two.component';
 import { FormThreeComponent } from './demo/form-three/form-three.component';
+import { FormFourComponent } from './demo/form-four/form-four.component';
+import { FormFiveComponent } from './demo/form-five/form-five.component';
 
 // 添加路由配置
 const routes: Routes = [
@@ -31,6 +33,8 @@ const routes: Routes = [
   { path: "lesson7", component: FormOneComponent },
   { path: "lesson8", component: FormTwoComponent },
   { path: "lesson9", component: FormThreeComponent },
+  { path: "lesson10", component: FormFourComponent },
+  { path: "lesson11", component: FormFiveComponent },
   {
     path: 'users',
     // 配置子路由，默认显示 UserListComponent ，传递 title

@@ -1,0 +1,56 @@
+<div class="container">
+    <br>
+    <form #_appointmentForm="ngForm" (ngSubmit)="onSubmitForm(_appointmentForm.value)">
+        <legend>{{title}}示例</legend>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" name="name" placeholder="Name (last, ﬁrst)" [(ngModel)]="_name"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="_password"
+                required>
+        </div>
+        <div class="form-group">
+            <div>
+                <label>Appointment Time</label>
+            </div>
+            <div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="time" value="12pm" [(ngModel)]="_time"
+                            required>
+                        12pm
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="time" value="2pm" [(ngModel)]="_time"
+                            required>
+                        2pm
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="time" value="4pm" [(ngModel)]="_time"
+                            required>
+                        4pm
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleTextarea" class="aliment">Ailment</label>
+            <textarea class="form-control" name="ailment" rows="3" [(ngModel)]="_ailment" required></textarea>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" [disabled]="!_appointmentForm.valid">Submit</button>
+        </div>
+        <br>
+        表单是否有效: {{ _appointmentForm.valid }}
+        <br>
+        表单完整数据: {{ _appointmentForm.value | json }}
+    </form>
+</div>
+

@@ -1,0 +1,134 @@
+input.ng-invalid {
+    border-left: 5px solid #a94442;
+    /* red */
+}
+
+
+/* 表示同时选择 label 元素和 textarea 元素，然后给它们都应用后面的样式规则。 */
+label,
+textarea {
+    /* 设置垂直对齐方式为居中 */
+    vertical-align: middle;
+}
+
+/* 设置整个页面的背景颜色为浅灰色 */
+body {
+    background-color: #f0f0f0;
+}
+
+.form-control {
+    width: 50%;
+}
+
+/* 设置容器的最大宽度为 600px，并居中显示 */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 设置表单的边框为圆角，并添加一些内边距和阴影效果 */
+form {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 设置表单标题的字体大小和颜色 */
+legend {
+    font-size: 24px;
+    color: #333;
+}
+
+/* 设置表单控件的边框颜色为淡蓝色，并添加一些过渡效果 */
+.form-control {
+    border-color: #b3d9ff;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* 设置表单控件在获取焦点时的边框颜色和阴影效果 */
+.form-control:focus {
+    border-color: #66b3ff;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+        0 0 8px rgba(102, 179, 255, 0.6);
+}
+
+/* 设置提交按钮的背景颜色为深蓝色，并添加一些过渡效果 */
+/* .btn-primary {
+    background-color: #0066cc;
+    transition: background-color 0.3s, transform 0.3s;
+} */
+
+/* 设置提交按钮在悬停时的背景颜色和缩放效果 */
+/* .btn-primary:hover {
+    background-color: #3399ff;
+    transform: scale(1.05);
+} */
+
+/* 设置提交按钮在按下时的背景颜色和缩放效果 */
+/* .btn-primary:active {
+    background-color: #003399;
+    transform: scale(0.95);
+} */
+
+/* 设置表单是否有效和表单完整数据的字体大小和颜色 */
+br+* {
+    font-size: 16px;
+    color: #666;
+}
+
+/* 选择所有的 .form-group 元素，除了有 .form-check 类的元素 */
+.form-group:not(.form-check) {
+    /* 设置为 flexbox 布局 */
+    display: flex;
+    /* 设置主轴方向为水平 */
+    flex-direction: row;
+    /* 设置主轴对齐方式为两端对齐 */
+    justify-content: space-between;
+    /* 设置交叉轴对齐方式为居中 */
+    align-items: center;
+}
+
+/* 选择所有的 .form-check 元素 */
+.form-check {
+    width: 100px;
+    /* 设置为 flexbox 布局 */
+    display: flex;
+    /* 设置主轴方向为垂直 */
+    flex-direction: column;
+    /* 设置主轴对齐方式为居中 */
+    justify-content: center;
+}
+
+/* 选择所有的 .form-check-label 元素 */
+.form-check-label {
+    /* 设置字体大小为 18px */
+    font-size: 18px;
+}
+
+/* 在每个 .form-check-input 元素后面添加一个伪元素 */
+.form-check-input+label::after {
+    /* 设置为行内块元素 */
+    display: inline-block;
+    /* 设置宽度和高度为 20px */
+    width: 20px;
+    height: 20px;
+    /* 设置边框为 2px 实线淡蓝色 */
+    border: 2px solid #b3d9ff;
+    /* 设置边框为圆形 */
+    border-radius: 50%;
+    /* 设置内容为空字符串 */
+    content: "";
+}
+
+/* 选择所有的 .btn-primary 元素 */
+.btn-primary {
+
+    display: block;
+    /* 设置宽度为 25% */
+    width: 25%;
+    /* 设置左右外边距为自动，实现水平居中 */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    font-size: 25px;
+}

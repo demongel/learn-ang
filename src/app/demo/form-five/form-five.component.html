@@ -1,0 +1,18 @@
+<p>响应式表单</p>
+
+<div class="container">
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <label>Maker:
+            <input formControlName="make">
+        </label>
+        <br />
+        <label>Model:
+            <input formControlName="model">
+        </label>
+        <br />
+        <input type="submit" value="Submit" [disabled]="!formGroup.valid">
+        <br>
+        表单是否有效: {{ formGroup.valid }} <br>
+        表单完整数据: {{ formGroup.value | json }}
+    </form>
+</div>

@@ -20,6 +20,8 @@ import { RxComponent } from './demo/rx/rx.component';
 import { FormOneComponent } from './demo/form-one/form-one.component';
 import { FormTwoComponent } from './demo/form-two/form-two.component';
 import { FormThreeComponent } from './demo/form-three/form-three.component';
+import { FormFourComponent } from './demo/form-four/form-four.component';
+import { FormFiveComponent } from './demo/form-five/form-five.component';
 
 @NgModule({
   // 组件 指令 管道等
@@ -40,7 +42,9 @@ import { FormThreeComponent } from './demo/form-three/form-three.component';
     RxComponent,
     FormOneComponent,
     FormTwoComponent,
-    FormThreeComponent
+    FormThreeComponent,
+    FormFourComponent,
+    FormFiveComponent
   ],
   // 导入其他模块 导入的模块都是用 NgModule 声明的
   // BrowserModule 参见 https://github.com/angular/angular/blob/main/packages/platform-browser/src/browser.ts 
