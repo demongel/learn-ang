@@ -22,6 +22,10 @@ import { FormTwoComponent } from './demo/form-two/form-two.component';
 import { FormThreeComponent } from './demo/form-three/form-three.component';
 import { FormFourComponent } from './demo/form-four/form-four.component';
 import { FormFiveComponent } from './demo/form-five/form-five.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemHeroService } from './shared/in-mem-hero.service';
+import { HttpOneComponent } from './demo/http-one/http-one.component';
 
 @NgModule({
   // 组件 指令 管道等
@@ -44,7 +48,8 @@ import { FormFiveComponent } from './demo/form-five/form-five.component';
     FormTwoComponent,
     FormThreeComponent,
     FormFourComponent,
-    FormFiveComponent
+    FormFiveComponent,
+    HttpOneComponent
   ],
   // 导入其他模块 导入的模块都是用 NgModule 声明的
   // BrowserModule 参见 https://github.com/angular/angular/blob/main/packages/platform-browser/src/browser.ts 
@@ -52,7 +57,9 @@ import { FormFiveComponent } from './demo/form-five/form-five.component';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule, // 导入HttpClientModule模块，注意导入顺序在BrowserModule之后
+    HttpClientInMemoryWebApiModule.forRoot(InMemHeroService) // 该模块必须在HttpClientMod-ule模块之后导入
   ],
   // 把提供Web应用程序级服务的提供商（Provider）定义在这个属性中，提供商负责创建对应的服务，以便Web应用程序中的任何组件都能使用它。
   providers: [],
