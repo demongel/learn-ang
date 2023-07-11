@@ -14,6 +14,7 @@ import { LazyComponent } from './demo/lazy/lazy.component';
 import { RxComponent } from './demo/rx/rx.component';
 import { FormOneComponent } from './demo/form-one/form-one.component';
 import { FormTwoComponent } from './demo/form-two/form-two.component';
+import { FormThreeComponent } from './demo/form-three/form-three.component';
 
 // 添加路由配置
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: "lesson6", component: RxComponent },
   { path: "lesson7", component: FormOneComponent },
   { path: "lesson8", component: FormTwoComponent },
+  { path: "lesson9", component: FormThreeComponent },
   {
     path: 'users',
     // 配置子路由，默认显示 UserListComponent ，传递 title

@@ -1,0 +1,24 @@
+<p>表单验证</p>
+
+<form [formGroup]="user">
+    <input formControlName="name" type="text">
+</form>
+{{user.value | json}}
+{{user.status}}
+{{user.controls.name.errors?.['cannotContainSpace']}}
+
+<p>模板驱动表单 提交</p>
+<!--模板驱动表单-->
+<!-- 在模板驱动表单中，<form>元素的模板引用变量可以作为参数传递给onSubmit()回调方法 -->
+<form #profileForm="ngForm" (ngSubmit)="onSubmit2(profileForm)">
+    <input type="text" ngModel name="city">
+    <button type="submit" [disabled]="!profileForm.valid">提交</button>
+</form>
+
+<p>响应式表单 提交</p>
+<!--响应式表单-->
+<!-- 在响应式表单中，由于模型实例本身就是在组件类中定义好的，因此用户并不需要通过在模板中传递的方式获取表单数据，可以直接获取类中的实例变量 -->
+<form [formGroup]="profileForReactive" (ngSubmit)="onSubmit()">
+    <input formControlName="city">
+    <button type="submit" [disabled]="!profileForReactive.valid">提交</button>
+</form>

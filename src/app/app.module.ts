@@ -19,6 +19,7 @@ import { LazyComponent } from './demo/lazy/lazy.component';
 import { RxComponent } from './demo/rx/rx.component';
 import { FormOneComponent } from './demo/form-one/form-one.component';
 import { FormTwoComponent } from './demo/form-two/form-two.component';
+import { FormThreeComponent } from './demo/form-three/form-three.component';
 
 @NgModule({
   // 组件 指令 管道等
@@ -38,7 +39,8 @@ import { FormTwoComponent } from './demo/form-two/form-two.component';
     LazyComponent,
     RxComponent,
     FormOneComponent,
-    FormTwoComponent
+    FormTwoComponent,
+    FormThreeComponent
   ],
   // 导入其他模块 导入的模块都是用 NgModule 声明的
   // BrowserModule 参见 https://github.com/angular/angular/blob/main/packages/platform-browser/src/browser.ts 
