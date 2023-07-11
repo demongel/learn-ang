@@ -26,6 +26,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemHeroService } from './shared/in-mem-hero.service';
 import { HttpOneComponent } from './demo/http-one/http-one.component';
+import { HttpTwoComponent } from './demo/http-two/http-two.component';
 
 @NgModule({
   // 组件 指令 管道等
@@ -49,7 +50,8 @@ import { HttpOneComponent } from './demo/http-one/http-one.component';
     FormThreeComponent,
     FormFourComponent,
     FormFiveComponent,
-    HttpOneComponent
+    HttpOneComponent,
+    HttpTwoComponent
   ],
   // 导入其他模块 导入的模块都是用 NgModule 声明的
   // BrowserModule 参见 https://github.com/angular/angular/blob/main/packages/platform-browser/src/browser.ts 

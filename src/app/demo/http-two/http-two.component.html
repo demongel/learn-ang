@@ -1,0 +1,35 @@
+<div style="text-align:center">
+    <h1>
+        {{title}}!
+    </h1>
+    <table class="table">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>操作</th>
+        </tr>
+        <tr *ngFor="let hero of heroes">
+            <td>{{ hero.id }}</td>
+            <td>{{ hero.name }}</td>
+            <td>
+                <button (click)="deleteHero(hero.id)">删除</button>
+                <button (click)="updateHero(hero)">更新</button>
+            </td>
+        </tr>
+    </table>
+    <br>
+    <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <div class="block">
+            <label>Id：</label>
+            <input formControlName="id">
+        </div>
+        <div class="block">
+            <label>Name：</label>
+            <input formControlName="name">
+        </div>
+        <input type="submit" value="添加" [disabled]="!formGroup.valid">
+        <br><br>
+        表单是否有效: {{ formGroup.valid }} <br>
+        表单完整数据: {{ formGroup.value | json }}
+    </form>
+</div>
