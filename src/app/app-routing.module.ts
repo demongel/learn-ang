@@ -19,6 +19,7 @@ import { FormFourComponent } from './demo/form-four/form-four.component';
 import { FormFiveComponent } from './demo/form-five/form-five.component';
 import { HttpOneComponent } from './demo/http-one/http-one.component';
 import { HttpTwoComponent } from './demo/http-two/http-two.component';
+import { HttpThreeComponent } from './demo/http-three/http-three.component';
 
 // 添加路由配置
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
   { path: "lesson11", component: FormFiveComponent },
   { path: "lesson12", component: HttpOneComponent },
   { path: "lesson13", component: HttpTwoComponent },
+  { path: "lesson14", component: HttpThreeComponent },
   {
     path: 'users',
     // 配置子路由，默认显示 UserListComponent ，传递 title
