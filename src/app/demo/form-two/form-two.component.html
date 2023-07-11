@@ -1,0 +1,33 @@
+<p>form-two works!</p>
+
+<p>测试 FormControlDirective</p>
+<input #f="ngForm" [formControl]="formControlInstance" type="text">
+{{ f.value }}
+
+<p>测试 FormGroupDirective 和 formControlName </p>
+<form [formGroup]="address">
+    <input formControlName="city" type="text">
+    <input formControlName="street" type="text">
+</form>
+{{address.value | json}}
+
+
+<p>测试 FormGroupDirective </p>
+<form [formGroup]="user">
+    <input formControlName="name" type="text">
+    <ng-container formGroupName="address">
+        <input formControlName="city" type="text">
+        <input formControlName="street" type="text">
+    </ng-container>
+</form>
+{{user.value | json}}
+
+<p>测试 FormArrayName </p>
+<form [formGroup]="myForm">
+    <ng-container formArrayName="movies">
+        <input *ngFor="let _ of myForm.controls['movies'].controls; let idx = index;" [formControlName]="idx"
+            type="text">
+    </ng-container>
+</form>
+{{ myForm.value | json }}
+{{ myForm.controls.movies.value }}

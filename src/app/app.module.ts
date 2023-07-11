@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LifecycleComponentComponent } from './demo/lifecycle-component/lifecycle-component.component';
 import { LiShowComponent } from './demo/li-show/li-show.component';
 import { PipeDemoComponent } from './demo/pipe-demo/pipe-demo.component';
@@ -18,6 +18,7 @@ import { UserDetailComponent } from './demo/user-detail/user-detail.component';
 import { LazyComponent } from './demo/lazy/lazy.component';
 import { RxComponent } from './demo/rx/rx.component';
 import { FormOneComponent } from './demo/form-one/form-one.component';
+import { FormTwoComponent } from './demo/form-two/form-two.component';
 
 @NgModule({
   // 组件 指令 管道等
@@ -36,13 +37,15 @@ import { FormOneComponent } from './demo/form-one/form-one.component';
     UserDetailComponent,
     LazyComponent,
     RxComponent,
-    FormOneComponent
+    FormOneComponent,
+    FormTwoComponent
   ],
   // 导入其他模块 导入的模块都是用 NgModule 声明的
   // BrowserModule 参见 https://github.com/angular/angular/blob/main/packages/platform-browser/src/browser.ts 
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   // 把提供Web应用程序级服务的提供商（Provider）定义在这个属性中，提供商负责创建对应的服务，以便Web应用程序中的任何组件都能使用它。
