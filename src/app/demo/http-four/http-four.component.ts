@@ -4,7 +4,7 @@ import { GithubService } from 'src/app/shared/github.service';
 import { User } from 'src/app/shared/user';
 
 @Component({
-  selector: 'app-http-fout',
+  selector: 'app-http-four',
   templateUrl: './http-four.component.html',
   styleUrls: ['./http-four.component.css']
 })
