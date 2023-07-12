@@ -34,6 +34,7 @@ import { MyInterceptor } from './shared/my.interceptor';
 import { HttpFourComponent } from './demo/http-four/http-four.component';
 import { PipeTwoComponent } from './demo/pipe-two/pipe-two.component';
 import { OrderbyPipe } from './shared/orderby.pipe';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   // 组件 指令 管道等
@@ -84,7 +85,9 @@ import { OrderbyPipe } from './shared/orderby.pipe';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true },// 配置打印请求拦截器
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },// 配置错误信息拦截器提供商
-    { provide: HTTP_INTERCEPTORS, useClass: LogInterceptor, multi: true } // 配置日志拦截器提供商
+    { provide: HTTP_INTERCEPTORS, useClass: LogInterceptor, multi: true }, // 配置日志拦截器提供商
+    DatePipe,
+    OrderbyPipe
   ],
   // Web应用程序的主视图，称为根组件。只有根模块才应该设置bootstrap属性
   bootstrap: [AppComponent]

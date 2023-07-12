@@ -1,5 +1,7 @@
+import { DatePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { Observable, interval, of } from 'rxjs';
+import { OrderbyPipe } from 'src/app/shared/orderby.pipe';
 
 @Component({
   selector: 'app-pipe-two',
@@ -32,7 +34,7 @@ export class PipeTwoComponent {
    * 通过interval创建符每秒发出一个当前的时间戳值，赋值给可观察对象类型的变量currentTime$。
    * 在模板中使用async管道获取变量currentTime$的最新值，同时使用链式管道转换时间戳值为可读格式的日期
    */
-  constructor() {
+  constructor(private datePipe: DatePipe, private orderByPipe: OrderbyPipe) {
     let subscription = interval(1000) // 每秒发出一个当前的时间戳值
       .subscribe((index) => {
         this.currentTime$ = of(Date.now())
@@ -41,6 +43,9 @@ export class PipeTwoComponent {
           console.log("订阅结束");
         }
       })
+
+    console.log(this.datePipe.transform(this.currentDate, "yyyy-MM-dd"));
+    console.log(this.orderByPipe.transform(this.fruits, "desc"));
   }
 
 }
