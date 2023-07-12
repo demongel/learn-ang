@@ -1,0 +1,39 @@
+<p>当前日期: {{ birthday | date }} </p>
+<p>指定日期格式: {{ birthday | date:'yyyy-MM-dd' }} </p>
+
+<strong>async 管道</strong>
+<p>当前日期: {{ currentTime$ | async }} </p>
+<p>指定日期格式: {{ currentTime$ | async| date:'yyyy-MM-dd HH:MM:ss' }} </p>
+
+<strong>currency 管道</strong>
+<!--输出 '$0.26'-->
+<p>1、{{a | currency}}</p>
+<!--输出 '¥0'-->
+<p>2、{{a | currency:'JPY'}}</p>
+<!--输出 '¥0.26'-->
+<p>3、{{a | currency:'JPY':'symbol':'1.2-2'}}</p>
+<!--输出 '¥0.26'-->
+<p>4、{{a | currency:'¥'}}</p>
+<!--输出 'RMB 0.26'-->
+<p>5、{{a | currency:'RMB '}}</p>
+<!--输出 '¥0.26'-->
+<p>6、{{a | currency:'JPY':'symbol':'1.2-2'}}</p>
+<!--输出 '¥0.258'-->
+<p>7、{{a | currency:'JPY':'symbol':'1.2-3'}}</p>
+<!--输出 'CA$0.26'-->
+<p>8、{{a | currency:'CAD'}}</p>
+<!--输出 'CAD0.26'-->
+<p>9、{{a | currency:'CAD':'code'}}</p>
+<!--输出 'CA$0,123.00'-->
+<p>10、{{b | currency:'CAD':'symbol':'4.2-2'}}</p>
+<!--输出 '$0,123.00'-->
+<p>11、{{b | currency:'CAD':'symbol-narrow':'4.2-2'}}</p>
+
+<strong>Date 管道</strong>
+<p>1、{{currentDate | date}}</p>
+<p *ngFor="let format of formats; let i = index;">
+   {{i+2}}、{{format}} -- {{currentDate | date:format}}
+</p>
+
+<strong>i18nSelect 管道</strong>
+<p>{{ female | i18nSelect: dicMap }} </p>

@@ -32,6 +32,7 @@ import { ErrorInterceptor } from './shared/error.interceptor';
 import { LogInterceptor } from './shared/log.interceptor';
 import { MyInterceptor } from './shared/my.interceptor';
 import { HttpFourComponent } from './demo/http-four/http-four.component';
+import { PipeTwoComponent } from './demo/pipe-two/pipe-two.component';
 
 @NgModule({
   // 组件 指令 管道等
@@ -58,7 +59,8 @@ import { HttpFourComponent } from './demo/http-four/http-four.component';
     HttpOneComponent,
     HttpTwoComponent,
     HttpThreeComponent,
-    HttpFourComponent
+    HttpFourComponent,
+    PipeTwoComponent
   ],
   // 导入其他模块 导入的模块都是用 NgModule 声明的
   // BrowserModule 参见 https://github.com/angular/angular/blob/main/packages/platform-browser/src/browser.ts 

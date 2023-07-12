@@ -21,6 +21,7 @@ import { HttpOneComponent } from './demo/http-one/http-one.component';
 import { HttpTwoComponent } from './demo/http-two/http-two.component';
 import { HttpThreeComponent } from './demo/http-three/http-three.component';
 import { HttpFourComponent } from './demo/http-four/http-four.component';
+import { PipeTwoComponent } from './demo/pipe-two/pipe-two.component';
 
 // 添加路由配置
 const routes: Routes = [
@@ -43,6 +44,7 @@ const routes: Routes = [
   { path: "lesson13", component: HttpTwoComponent },
   { path: "lesson14", component: HttpThreeComponent },
   { path: "lesson15", component: HttpFourComponent },
+  { path: "lesson16", component: PipeTwoComponent },
   {
     path: 'users',
     // 配置子路由，默认显示 UserListComponent ，传递 title
