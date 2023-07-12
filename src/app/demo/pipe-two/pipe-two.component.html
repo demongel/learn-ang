@@ -32,8 +32,13 @@
 <strong>Date 管道</strong>
 <p>1、{{currentDate | date}}</p>
 <p *ngFor="let format of formats; let i = index;">
-   {{i+2}}、{{format}} -- {{currentDate | date:format}}
+    {{i+2}}、{{format}} -- {{currentDate | date:format}}
 </p>
 
 <strong>i18nSelect 管道</strong>
 <p>{{ female | i18nSelect: dicMap }} </p>
+
+
+<strong>自定义 orderby 管道</strong>
+<p>{{ fruits | orderby }} </p>
+<p>{{ fruits | orderby:'desc' }} </p>

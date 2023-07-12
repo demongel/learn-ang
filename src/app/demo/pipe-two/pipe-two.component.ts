@@ -26,6 +26,8 @@ export class PipeTwoComponent {
   // 映射对象
   dicMap: any = { '0': '女', '1': '男' };
 
+  fruits: Array<string> = ['apple', 'tomato', 'banana', 'orange', 'grape', 'lemon'];
+
   /**
    * 通过interval创建符每秒发出一个当前的时间戳值，赋值给可观察对象类型的变量currentTime$。
    * 在模板中使用async管道获取变量currentTime$的最新值，同时使用链式管道转换时间戳值为可读格式的日期
