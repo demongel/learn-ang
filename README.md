@@ -1,7 +1,7 @@
 # angular 学习记录 参照《Angular开发入门与实战》 作者： 兰泽军
 
 # 运行截图
-![运行截图](https://gitee.com/demongel/learn-ang/blob/feature/ang-dev/src/assets/%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE/000%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE.png)
+![运行截图](/src/assets/%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE/000%E8%BF%90%E8%A1%8C%E6%88%AA%E5%9B%BE.png?raw=true)
 
 # LearnAng
 
