@@ -48,3 +48,6 @@ export class MyInterceptor implements HttpInterceptor {
 - HTTP_INTERCEPTORS 的作用是提供一个注入令牌，用于注册一个或多个 HttpInterceptor 服务
 -  multi: true 的选项，表示允许多个拦截器共享同一个注入令牌。这样，您可以在不同的模块中提供不同的拦截器，它们会按照提供的顺序组成一个链条。
 
+- Angular会按照配置提供商的顺序应用这些拦截器。如果提供拦截器的顺序是先A，再B，最后C，那么请求阶段的执行顺序就是A→B→C，而响应阶段的执行顺序则是C→B→A。
+
+- LogInterceptor和ErrorInterceptor拦截器分别执行了两次，这是因为请求时执行一次，响应后要再执行一次。注意看event type

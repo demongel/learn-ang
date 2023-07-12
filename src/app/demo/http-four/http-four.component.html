@@ -1,0 +1,11 @@
+<div style="text-align:center">
+    <h1>
+        {{title}}!
+    </h1>
+    <span style="display: block">{{ title }} app is running!</span>
+    <h3>here is the github user lists:</h3>
+    <div *ngFor="let user of users$ |async">
+        <strong>User Name:</strong> {{ user.login }}
+        <strong>GitHub URL:</strong> {{ user.url }}
+    </div>
+</div>
