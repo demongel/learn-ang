@@ -22,12 +22,15 @@ import { FormTwoComponent } from './demo/form-two/form-two.component';
 import { FormThreeComponent } from './demo/form-three/form-three.component';
 import { FormFourComponent } from './demo/form-four/form-four.component';
 import { FormFiveComponent } from './demo/form-five/form-five.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemHeroService } from './shared/in-mem-hero.service';
 import { HttpOneComponent } from './demo/http-one/http-one.component';
 import { HttpTwoComponent } from './demo/http-two/http-two.component';
 import { HttpThreeComponent } from './demo/http-three/http-three.component';
+import { ErrorInterceptor } from './shared/error.interceptor';
+import { LogInterceptor } from './shared/log.interceptor';
+import { MyInterceptor } from './shared/my.interceptor';
 
 @NgModule({
   // 组件 指令 管道等
@@ -72,8 +75,14 @@ import { HttpThreeComponent } from './demo/http-three/http-three.component';
     HttpClientInMemoryWebApiModule.forRoot(InMemHeroService, { passThruUnknownUrl: true }) // 该模块必须在HttpClientModule模块之后导入
   ],
   // 把提供Web应用程序级服务的提供商（Provider）定义在这个属性中，提供商负责创建对应的服务，以便Web应用程序中的任何组件都能使用它。
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true },// 配置打印请求拦截器
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },// 配置错误信息拦截器提供商
+    { provide: HTTP_INTERCEPTORS, useClass: LogInterceptor, multi: true } // 配置日志拦截器提供商
+  ],
   // Web应用程序的主视图，称为根组件。只有根模块才应该设置bootstrap属性
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
